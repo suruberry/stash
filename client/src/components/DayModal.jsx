@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function DayModal({ day, onClose, onSave, existing }) {
+function DayModal({ day, month, onClose, onSave, existing }) {
   const moods = ['😔', '😐', '🙂', '😊', '🤩']
   const colors = ['#CECBF6', '#9FE1CB', '#F5C4B3', '#FAC775', '#F4C0D1', '#B5D4F4']
   const stickers = ['☕', '📚', '🌿', '🎵', '💻', '🔥', '🍕', '🎉', '🌙', '✨', '🧘', '🫶']
@@ -25,7 +25,7 @@ function DayModal({ day, onClose, onSave, existing }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
-          <span className="modal-title">March {day}</span>
+          <span className="modal-title">{month} {day}</span>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
 

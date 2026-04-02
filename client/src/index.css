@@ -248,3 +248,76 @@ body {
   font-size: 13px;
   margin-top: 2px;
 }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e8e6e0;
+}
+
+.app-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #7F77DD;
+  letter-spacing: -0.02em;
+}
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.month-label {
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 160px;
+  text-align: center;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #888;
+  transition: background 0.1s;
+}
+
+.nav-btn:hover {
+  background: #f9f8f6;
+}
+
+.today-btn {
+  background: #EEEDFE;
+  border: 1px solid #AFA9EC;
+  border-radius: 8px;
+  padding: 5px 14px;
+  font-size: 13px;
+  color: #3C3489;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.today-btn:hover {
+  background: #CECBF6;
+}
+
+.day-cell.today {
+  background: #fdfcff;
+}
+
+.today-num {
+  background: #7F77DD;
+  color: white !important;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
