@@ -3,8 +3,16 @@ import DayModal from './DayModal'
 
 function Calendar() {
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  const year = 2026
-  const month = 2
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ]
+
+  const today = new Date()
+  const [year, setYear] = useState(today.getFullYear())
+  const [month, setMonth] = useState(today.getMonth())
+  const [selectedDay, setSelectedDay] = useState(null)
+  const [dayData, setDayData] = useState({})
 
   const firstDay = new Date(year, month, 1).getDay()
   const totalDays = new Date(year, month + 1, 0).getDate()
@@ -12,17 +20,61 @@ function Calendar() {
   const dates = Array.from({ length: totalDays }, (_, i) => i + 1)
   const allCells = [...blanks, ...dates]
 
-  const [selectedDay, setSelectedDay] = useState(null)
-  const [dayData, setDayData] = useState({})
+  function prevMonth() {
+    if (month === 0) {
+      setMonth(11)
+      setYear(y => y - 1)
+    } else {
+      setMonth(m => m - 1)
+    }
+  }
+
+  function nextMonth() {
+    if (month === 11) {
+      setMonth(0)
+      setYear(y => y + 1)
+    } else {
+      setMonth(m => m + 1)
+    }
+  }
 
   function handleSave(day, data) {
-    setDayData(prev => ({ ...prev, [day]: data }))
+    const key = `${year}-${month}-${day}`
+    setDayData(prev => ({ ...prev, [key]: data }))
   }
+
+  function getDayData(day) {
+    return dayData[`${year}-${month}-${day}`]
+  }
+
+  const isToday = (day) =>
+    day === today.getDate() &&
+    month === today.getMonth() &&
+    year === today.getFullYear()
 
   return (
     <div className="calendar-container">
-      <div className="calendar-header">
-        <h2>March 2026</h2>
+
+      <div className="topbar">
+        <span className="app-name">stash</span>
+        <div className="month-nav">
+          <button className="nav-btn" onClick={prevMonth}>&#8592;</button>
+          <span className="month-label">
+            {monthNames[month]} {year}
+          </span>
+          <button className="nav-btn" onClick={nextMonth}>&#8594;</button>
+        </div>
+        <div className="topbar-right">
+          <button
+            className="today-btn"
+            onClick={() => {
+              setMonth(today.getMonth())
+              setYear(today.getFullYear())
+            }}
+          >
+            today
+          </button>
+        </div>
       </div>
 
       <div className="day-headers">
@@ -33,15 +85,19 @@ function Calendar() {
 
       <div className="calendar-grid">
         {allCells.map((day, i) => {
-          const data = dayData[day]
+          const data = getDayData(day)
           return (
             <div
               key={i}
-              className={`day-cell ${day === null ? 'empty' : ''}`}
+              className={`day-cell ${day === null ? 'empty' : ''} ${isToday(day) ? 'today' : ''}`}
               style={{ borderBottom: data?.color ? `3px solid ${data.color}` : '' }}
               onClick={() => day && setSelectedDay(day)}
             >
-              {day && <span className="day-number">{day}</span>}
+              {day && (
+                <span className={`day-number ${isToday(day) ? 'today-num' : ''}`}>
+                  {day}
+                </span>
+              )}
               {data?.mood && <span className="cell-mood">{data.mood}</span>}
               {data?.stickers?.length > 0 && (
                 <div className="cell-stickers">
@@ -58,11 +114,12 @@ function Calendar() {
       {selectedDay && (
         <DayModal
           day={selectedDay}
+          month={monthNames[month]}
           onClose={() => setSelectedDay(null)}
           onSave={handleSave}
-          existing={dayData[selectedDay]}
-      />
-    )}
+          existing={getDayData(selectedDay)}
+        />
+      )}
     </div>
   )
 }
