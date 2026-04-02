@@ -1,0 +1,250 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f9f8f6;
+  color: #1a1a1a;
+}
+
+.app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.calendar-container {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e8e6e0;
+  overflow: hidden;
+}
+
+.calendar-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e8e6e0;
+}
+
+.calendar-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.day-headers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid #e8e6e0;
+}
+
+.day-label {
+  padding: 8px 0;
+  text-align: center;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day-cell {
+  min-height: 90px;
+  border-right: 1px solid #e8e6e0;
+  border-bottom: 1px solid #e8e6e0;
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.day-cell:hover {
+  background: #f9f8f6;
+}
+
+.day-cell.empty {
+  background: #fafaf8;
+  cursor: default;
+}
+
+.day-number {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid #e8e6e0;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e8e6e0;
+}
+
+.modal-title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-label {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.sticker-btn {
+  font-size: 20px;
+  background: #f9f8f6;
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.sticker-btn.selected {
+  background: #EEEDFE;
+  border-color: #AFA9EC;
+}
+
+.mood-row {
+  display: flex;
+  gap: 8px;
+}
+
+.mood-btn {
+  font-size: 22px;
+  background: #f9f8f6;
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.mood-btn.selected {
+  background: #EEEDFE;
+  border-color: #AFA9EC;
+}
+
+.color-row {
+  display: flex;
+  gap: 8px;
+}
+
+.color-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border 0.1s;
+}
+
+.color-btn.selected {
+  border-color: #1a1a1a;
+}
+
+.note-input {
+  width: 100%;
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  resize: none;
+  background: #f9f8f6;
+  color: #1a1a1a;
+}
+
+.modal-footer {
+  padding: 12px 18px;
+  border-top: 1px solid #e8e6e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-cancel {
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid #e8e6e0;
+  background: none;
+  cursor: pointer;
+  color: #888;
+}
+
+.btn-save {
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid #AFA9EC;
+  background: #EEEDFE;
+  color: #3C3489;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cell-mood {
+  font-size: 14px;
+  display: block;
+  margin-top: 2px;
+}
+
+.cell-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  font-size: 13px;
+  margin-top: 2px;
+}
