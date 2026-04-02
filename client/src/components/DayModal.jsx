@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-function DayModal({ day, onClose, onSave }) {
+function DayModal({ day, onClose, onSave, existing }) {
   const moods = ['😔', '😐', '🙂', '😊', '🤩']
   const colors = ['#CECBF6', '#9FE1CB', '#F5C4B3', '#FAC775', '#F4C0D1', '#B5D4F4']
   const stickers = ['☕', '📚', '🌿', '🎵', '💻', '🔥', '🍕', '🎉', '🌙', '✨', '🧘', '🫶']
 
-  const [selectedStickers, setSelectedStickers] = useState([])
-  const [selectedMood, setSelectedMood] = useState(null)
-  const [selectedColor, setSelectedColor] = useState(null)
-  const [note, setNote] = useState('')
+  const [selectedStickers, setSelectedStickers] = useState(existing?.stickers || [])
+  const [selectedMood, setSelectedMood] = useState(existing?.mood || null)
+  const [selectedColor, setSelectedColor] = useState(existing?.color || null)
+  const [note, setNote] = useState(existing?.note || '')
 
   function toggleSticker(s) {
     setSelectedStickers(prev =>

@@ -60,8 +60,9 @@ function Calendar() {
           day={selectedDay}
           onClose={() => setSelectedDay(null)}
           onSave={handleSave}
-        />
-      )}
+          existing={dayData[selectedDay]}
+      />
+    )}
     </div>
   )
 }
