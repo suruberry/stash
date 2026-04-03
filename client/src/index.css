@@ -321,3 +321,92 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.tab-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 0;
+  margin-bottom: 20px;
+}
+
+.app-name-tab {
+  font-size: 20px;
+  font-weight: 600;
+  color: #7F77DD;
+  letter-spacing: -0.02em;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: #f0efe8;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 7px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #888;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.tab.active {
+  background: white;
+  color: #3C3489;
+  border: 1px solid #e8e6e0;
+}
+
+.stash-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.stash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.stash-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e8e6e0;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stash-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+}
+
+.stash-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 20px;
+}
+
+.stash-mood {
+  font-size: 20px;
+}
+
+.stash-note {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+  margin: 0;
+}

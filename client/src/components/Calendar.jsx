@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import DayModal from './DayModal'
 
-function Calendar() {
+function Calendar({ dayData, saveDay, month, setMonth, year, setYear }) {
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -9,10 +9,7 @@ function Calendar() {
   ]
 
   const today = new Date()
-  const [year, setYear] = useState(today.getFullYear())
-  const [month, setMonth] = useState(today.getMonth())
   const [selectedDay, setSelectedDay] = useState(null)
-  const [dayData, setDayData] = useState({})
 
   const firstDay = new Date(year, month, 1).getDay()
   const totalDays = new Date(year, month + 1, 0).getDate()
@@ -40,7 +37,7 @@ function Calendar() {
 
   function handleSave(day, data) {
     const key = `${year}-${month}-${day}`
-    setDayData(prev => ({ ...prev, [key]: data }))
+    saveDay(key, data)
   }
 
   function getDayData(day) {
@@ -56,7 +53,6 @@ function Calendar() {
     <div className="calendar-container">
 
       <div className="topbar">
-        <span className="app-name">stash</span>
         <div className="month-nav">
           <button className="nav-btn" onClick={prevMonth}>&#8592;</button>
           <span className="month-label">
