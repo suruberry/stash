@@ -125,20 +125,22 @@ Open `http://localhost:5173`
 ---
 
 ## Project structure
+```
 stash/
-client/               # React frontend
-src/
-components/
-Calendar.jsx    # Main calendar grid + month navigation
-DayModal.jsx    # Day editing popup
-StashView.jsx   # "My Stash" saved days view
-Logo.jsx        # Custom SVG logo
-App.jsx           # Root component + data fetching
-index.css         # Global styles
-server/               # Express backend
-prisma/
-schema.prisma     # Database schema
-index.js            # API routes
+├── client/                   # React frontend
+│   └── src/
+│       ├── components/
+│       │   ├── Calendar.jsx  # Main calendar grid + month navigation
+│       │   ├── DayModal.jsx  # Day editing popup
+│       │   ├── StashView.jsx # "My Stash" saved days view
+│       │   └── Logo.jsx      # Custom SVG logo component
+│       ├── App.jsx           # Root component + data fetching
+│       └── index.css         # Global styles
+└── server/                   # Express backend
+    ├── prisma/
+    │   └── schema.prisma     # Database schema + migrations
+    └── index.js              # REST API routes
+```
 
 ---
 
