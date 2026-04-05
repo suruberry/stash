@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Calendar from './components/Calendar'
 import StashView from './components/StashView'
+import Logo from './components/Logo'
 
 function App() {
   const [activeTab, setActiveTab] = useState('calendar')
@@ -14,7 +15,7 @@ function App() {
   ]
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/days')
+    fetch('https://stash-jlde.onrender.com/api/days')
       .then(res => res.json())
       .then(days => {
         const mapped = {}
@@ -31,7 +32,7 @@ function App() {
   }, [])
 
   async function saveDay(date, data) {
-    await fetch('http://localhost:3001/api/days', {
+    await fetch('https://stash-jlde.onrender.com/api/days', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ date, ...data })
@@ -42,7 +43,7 @@ function App() {
   return (
     <div className="app">
       <div className="tab-bar">
-        <span className="app-name-tab">stash</span>
+        <Logo />
         <div className="tabs">
           <button
             className={`tab ${activeTab === 'calendar' ? 'active' : ''}`}

@@ -6,7 +6,9 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #f9f8f6;
+  background: linear-gradient(135deg, #F2E6B8 0%, #F2BFB4 35%, #F1CCA6 65%, #F28695 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
   color: #1a1a1a;
 }
 
@@ -173,7 +175,7 @@ body {
 
 .mood-btn.selected {
   background: #EEEDFE;
-  border-color: #AFA9EC;
+  border-color: #F28695;
 }
 
 .color-row {
@@ -228,9 +230,9 @@ body {
   font-size: 13px;
   padding: 7px 16px;
   border-radius: 8px;
-  border: 1px solid #AFA9EC;
+  border: 1px solid #F28695;
   background: #EEEDFE;
-  color: #3C3489;
+  color: #ea495e;
   cursor: pointer;
   font-weight: 500;
 }
@@ -260,7 +262,7 @@ body {
 .app-name {
   font-size: 18px;
   font-weight: 600;
-  color: #7F77DD;
+  color: #F28695;
   letter-spacing: -0.02em;
 }
 
@@ -294,11 +296,11 @@ body {
 
 .today-btn {
   background: #EEEDFE;
-  border: 1px solid #AFA9EC;
+  border: 1px solid #F28695;
   border-radius: 8px;
   padding: 5px 14px;
   font-size: 13px;
-  color: #3C3489;
+  color: #ea495e;
   cursor: pointer;
   font-weight: 500;
 }
@@ -312,7 +314,7 @@ body {
 }
 
 .today-num {
-  background: #7F77DD;
+  background: #F28695;
   color: white !important;
   border-radius: 50%;
   width: 22px;
@@ -333,7 +335,7 @@ body {
 .app-name-tab {
   font-size: 20px;
   font-weight: 600;
-  color: #7F77DD;
+  color: #F28695;
   letter-spacing: -0.02em;
 }
 
@@ -359,7 +361,7 @@ body {
 
 .tab.active {
   background: white;
-  color: #3C3489;
+  color: #ea495e;
   border: 1px solid #e8e6e0;
 }
 
